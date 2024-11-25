@@ -8,6 +8,10 @@ TagManager:
   - Laser
   - Wall
   - ToNextLevel
+  - Floor
+  - Ceiling
+  - Right wall
+  - Left wall
   layers:
   - Default
   - TransparentFX
