@@ -12,6 +12,7 @@ public class LaserShooter: ClickSpawner {
     // A reference to the field that holds the score that has to be updated when the laser hits its target.
     NumberField scoreField;  
 
+
     private void Start() {
         scoreField = GetComponentInChildren<NumberField>();
         if (!scoreField)
@@ -19,13 +20,42 @@ public class LaserShooter: ClickSpawner {
     }
 
     protected override GameObject spawnObject() {
-        GameObject newObject = base.spawnObject();  // base = super
 
+        if (CompareTag("Player"))
+        {
+            if (IsBombOutsideCamera())
+            {
+                return null; // Do not spawn if a bomb is already near the camera borders
+            } 
+        }
+        
+        GameObject newObject = base.spawnObject();  // base = super
+        
         // Modify the text field of the new object.
         ScoreAdder newObjectScoreAdder = newObject.GetComponent<ScoreAdder>();
         if (newObjectScoreAdder)
             newObjectScoreAdder.SetScoreField(scoreField).SetPointsToAdd(pointsToAdd);
 
         return newObject;
+    }
+
+    private bool IsBombOutsideCamera()
+    {
+        // Get all bombs in the scene
+        GameObject[] bombs = GameObject.FindGameObjectsWithTag("Bomb"); // Make sure bombs have the "Bomb" tag
+        Camera mainCamera = Camera.main;
+
+        foreach (GameObject bomb in bombs)
+        {
+            Vector3 screenPosition = mainCamera.WorldToViewportPoint(bomb.transform.position);
+
+            // Check if the bomb is outside the camera's viewport (between 0 and 1 in both x and y)
+            if (screenPosition.y < 1)
+            {
+                return true; // A bomb is outside the camera's borders
+            }
+        }
+
+        return false; // No bomb outside the camera's borders
     }
 }

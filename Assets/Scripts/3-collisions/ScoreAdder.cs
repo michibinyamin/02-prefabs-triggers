@@ -11,6 +11,7 @@ public class ScoreAdder : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.tag == triggeringTag && scoreField!=null) {
+            Debug.Log("Hit");
             scoreField.AddNumber(pointsToAdd);
         }
     }

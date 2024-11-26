@@ -1217,6 +1217,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1604446135}
+    - targetCorrespondingSourceObject: {fileID: 3896440064613542801, guid: 41e5c0266515f1c49aec825f2068a297,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1604446144}
     - targetCorrespondingSourceObject: {fileID: 880349689355459643, guid: 41e5c0266515f1c49aec825f2068a297,
         type: 3}
       insertIndex: -1
@@ -1280,6 +1284,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3460ad62ce8a39e47a75c13b362f00d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1604446144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604446122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3f87ba57ceb714ab63986008d924b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnAction:
+    m_Name: Spawn
+    m_Type: 1
+    m_ExpectedControlType: 
+    m_Id: c2c8047b-f52d-4027-a52b-84905f1e955a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 87d38686-e0b3-4577-8587-349a3aa65689
+      m_Path: <Keyboard>/shift
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Spawn
+      m_Flags: 0
+    m_Flags: 0
+  prefabToSpawn: {fileID: 1419863817659288844, guid: a367f1491dd39174d888dd211ea94990,
+    type: 3}
+  velocityOfSpawnedObject: {x: 0, y: 5, z: 0}
+  pointsToAdd: 1
 --- !u!1 &1640928814
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - Ceiling
   - Right wall
   - Left wall
+  - Bomb
   layers:
   - Default
   - TransparentFX
