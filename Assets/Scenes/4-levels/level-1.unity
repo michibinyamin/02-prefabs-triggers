@@ -1140,7 +1140,7 @@ PrefabInstance:
     - target: {fileID: 3018108657062391778, guid: 41e5c0266515f1c49aec825f2068a297,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3896440064613542801, guid: 41e5c0266515f1c49aec825f2068a297,
         type: 3}
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24cd8fbea89778946aace769a962b58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggeringTag: 
+  triggeringTag: Enemy
   sceneName: level-game-over
 --- !u!114 &1604446134
 MonoBehaviour:

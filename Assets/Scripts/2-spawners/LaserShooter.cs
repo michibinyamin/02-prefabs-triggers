@@ -14,9 +14,11 @@ public class LaserShooter: ClickSpawner {
 
 
     private void Start() {
-        scoreField = GetComponentInChildren<NumberField>();
-        if (!scoreField)
-            Debug.LogError($"No child of {gameObject.name} has a NumberField component!");
+        //scoreField = GetComponentInChildren<NumberField>();
+        //if (!scoreField);
+        //    Debug.LogError($"No child of {gameObject.name} has a NumberField component!");
+        GameObject otherObject = GameObject.Find("PlayerSpaceship1");  // Replace with the target object's name
+        scoreField = otherObject.GetComponentInChildren<NumberField>();
     }
 
     protected override GameObject spawnObject() {
@@ -30,7 +32,12 @@ public class LaserShooter: ClickSpawner {
         }
         
         GameObject newObject = base.spawnObject();  // base = super
-        
+        if (CompareTag("Bomb"))
+        {
+            Destroy(gameObject, 0.01f);  // Give time for the other lasers to be destroyd
+            //gameObject.GetComponent<Renderer>().enabled = false;
+        }
+
         // Modify the text field of the new object.
         ScoreAdder newObjectScoreAdder = newObject.GetComponent<ScoreAdder>();
         if (newObjectScoreAdder)
