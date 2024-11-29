@@ -4,16 +4,18 @@
  * This component spawns the given laser-prefab whenever the player clicks a given key.
  * It also updates the "scoreText" field of the new laser.
  */
-public class LaserShooter: ClickSpawner {
+public class LaserShooter : ClickSpawner
+{
     [SerializeField]
     [Tooltip("How many points to add to the shooter, if the laser hits its target")]
     int pointsToAdd = 1;
 
     // A reference to the field that holds the score that has to be updated when the laser hits its target.
-    NumberField scoreField;  
+    NumberField scoreField;
 
 
-    private void Start() {
+    private void Start()
+    {
         //scoreField = GetComponentInChildren<NumberField>();
         //if (!scoreField);
         //    Debug.LogError($"No child of {gameObject.name} has a NumberField component!");
@@ -21,16 +23,17 @@ public class LaserShooter: ClickSpawner {
         scoreField = otherObject.GetComponentInChildren<NumberField>();
     }
 
-    protected override GameObject spawnObject() {
+    protected override GameObject spawnObject()
+    {
 
         if (CompareTag("Player"))
         {
             if (IsBombOutsideCamera())
             {
                 return null; // Do not spawn if a bomb is already near the camera borders
-            } 
+            }
         }
-        
+
         GameObject newObject = base.spawnObject();  // base = super
         if (CompareTag("Bomb"))
         {
